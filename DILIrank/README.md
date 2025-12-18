@@ -24,9 +24,6 @@ Molecular inputs were SMILES strings processed with RDKit to produce:
 
 Few descriptors along with six fingerprint bits were isolated based on their SHAP contributions to positive DILI classification. Each bit was visualized with representative molecules from the dataset.  
 Top features based on the SHAP score:
-<div align="center">
-<img src="SHAP.png"/>
-</div>
 
 ---
 
