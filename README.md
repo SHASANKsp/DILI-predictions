@@ -3,8 +3,7 @@
 ---
 
 ## **Abstract**
-Drug-induced liver injury (DILI) is a major cause of clinical attrition despite extensive in vitro toxicity screening. I applied interpretable machine learning to molecular descriptors and fingerprint bits derived from SMILES strings to identify structural and physicochemical features predictive of DILI risk. These bits, when interpreted in the context of top RDKit descriptors including aromaticity, heterocycle count, lipophilicity proxies, and topological features, reveal mechanistically plausible pathways to hepatotoxicity such as reactive metabolite formation, transporter inhibition, metabolic stress, clearance overload, and intracellular accumulation.
-I build two model using the same approach with two dataset "DILIrank" and "InterDILI".  
+Drug-induced liver injury (DILI) is a major cause of clinical attrition despite extensive in vitro toxicity screening. I applied interpretable machine learning to molecular descriptors and fingerprint bits derived from SMILES strings to identify structural and physicochemical features predictive of DILI risk. These bits, when interpreted in the context of top RDKit descriptors including aromaticity, heterocycle count, lipophilicity proxies, and topological features, reveal mechanistically plausible pathways to hepatotoxicity such as reactive metabolite formation, transporter inhibition, metabolic stress, clearance overload, and intracellular accumulation. I build two model using the same approach with two dataset **DILIrank** and **InterDILI**.  
 InterDILI: 1850 drugs  
 DILIrank: 500 drugs
 

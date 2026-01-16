@@ -1,38 +1,25 @@
-# **Mechanistic Interpretation of Descriptor and Substructure Features in the InterDILI dataset for DILI Model**
-
----
-
-## **Abstract**
-
-Drug-induced liver injury (DILI) remains a major barrier to drug development, particularly due to its multifactorial and often delayed clinical presentation. In this work, I trained a DILI classification model on an expanded chemical dataset using SMILES-derived RDKit descriptors and molecular fingerprint bits. Feature attribution using SHAP reveals that this model emphasizes **electronic asymmetry, surface-area partitioning, aromatic persistence, and explicit bioactivation alerts** as dominant contributors to DILI prediction. The resulting feature set reflects mechanistically plausible pathways including reactive metabolite formation, hepatic accumulation, transporter interaction, metabolic bottlenecks, and chronic intracellular stress.
-
----
+# **Mechanistic Interpretation of Descriptor and Substructure Features Predictive of Drug-Induced Liver Injury in SMILES-Driven Machine Learning Models : InterDILI**
 
 ## **Introduction**
 
-The liver’s role as the primary organ for xenobiotic metabolism exposes it to a wide range of chemical stresses. DILI mechanisms include CYP-mediated bioactivation, transporter inhibition, oxidative and mitochondrial stress, and clearance imbalance. While machine learning models trained on chemical structure can achieve predictive performance, their utility depends on whether they capture biologically meaningful signals rather than dataset artifacts. This model, trained on a substantially larger dataset, provides an opportunity to evaluate whether increased data volume sharpens mechanistic resolution of DILI risk.
+The liver’s central role in drug metabolism makes it especially susceptible to xenobiotic stress. DILI mechanisms span reactive metabolite formation, transporter inhibition leading to cholestasis, mitochondrial dysfunction, oxidative stress, and immune-mediated responses. Machine learning approaches can identify chemical features associated with DILI risk, but without mechanistic interpretation these remain a black box.
 
----
 
-## **Methods Summary**
+## **Method**
+The InterDILI data was downloaded and with molecular inputs as SMILES strings were processed with RDKit to produce:
 
-Molecular inputs consisted of SMILES strings processed using RDKit to generate:
+* Extended connectivity fingerprints (Morgan fingerprint) and 3D and 2D descriptors 
+* Feature attribution for model interpretability to rank the most predictive properties/bits.
 
-* Extended connectivity fingerprints (Morgan fingerprints),
-* 2D physicochemical descriptors including BCUT eigenvalues, VSA-weighted properties, fragment alerts, and aromaticity metrics,
-* SHAP-based feature attribution to identify descriptors and fingerprint bits most strongly associated with DILI predictions.
-
-Only descriptors and fingerprint bits with consistently high SHAP contributions were retained for mechanistic interpretation.
-
----
+Few descriptors along with six fingerprint bits were isolated based on their SHAP contributions to DILI classification. Each bit was visualized with representative molecules from the dataset.
 
 ## **Results**
 
 ### **RDKit Descriptors Identified as Top Predictive Features**
 
-The expanded-dataset model highlights the following descriptors as dominant contributors:
+The InterDILI dataset model highlights the following descriptors as dominant contributors:
 
-* **BCUT2D_LOGPLOW / BCUT2D_MRLOW / BCUT2D_MWLOW / BCUT2D_CHGLO**
+* **BCUT2D_LOGPLOW / BCUT2D_MRLOW / BCUT2D_MWLOW / BCUT2D_CHGLO:**
   Lowest eigenvalues of adjacency matrices weighted by lipophilicity, polarizability, atomic mass, and charge, respectively. These descriptors encode **electronic and physicochemical asymmetry** across the molecular graph.
 
 * **SlogP_VSA8 / SlogP_VSA10**
@@ -55,9 +42,9 @@ The expanded-dataset model highlights the following descriptors as dominant cont
 
 Collectively, these descriptors emphasize *where* lipophilicity, charge, and reactivity are expressed within a molecule, rather than their absolute magnitudes.
 
----
 
-## **Fingerprint Bits and Mechanistic Interpretation**
+
+### **Fingerprint Bits and Mechanistic Interpretation**
 
 Below are the fingerprint bits identified as highly influential in this model, interpreted in the context of the above descriptors.
 
@@ -113,9 +100,9 @@ These structures combine accumulation-prone aromatic bulk with metabolically act
 **Associated Descriptors:**
 SlogP_VSA*, PEOE_VSA*, BCUT2D_LOGPLOW.
 
----
 
-## **Discussion**
+
+## **Conclusion**
 
 The InterDILI model defines DILI risk through **structural organization rather than simple physicochemical thresholds**. Four dominant hepatic liability modes emerge:
 
@@ -133,13 +120,9 @@ The InterDILI model defines DILI risk through **structural organization rather t
 
 Compared to DILIrank model, this model shows **greater reliance on second-order descriptors**, indicating that increased data volume enables finer discrimination of mechanistic DILI drivers.
 
----
-
-## **Conclusion**
 
 This InterDILI DILI model captures hepatotoxic risk as an emergent property of **electronic asymmetry, spatial distribution of lipophilicity and charge, aromatic persistence, and known bioactivation motifs**. Rather than relying on coarse descriptors such as molecular weight or total logP, the model encodes how chemical properties are organized within the molecular structure. This mechanistic grounding enhances confidence in both predictive performance and downstream use for safety-aware chemical exploration.
 
----
 
 ## **References**
 1. David, Stefan, and James P. Hamilton. "Drug-induced liver injury." US gastroenterology & hepatology review 6 (2010): 73.
