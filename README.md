@@ -1,6 +1,4 @@
-# **Simple Structure Based DILI Prediction Models**
-
----
+# **Mechanistic Interpretation of Descriptor and Substructure Features Predictive of Drug-Induced Liver Injury in SMILES-Driven Machine Learning Models**
 
 ## **Abstract**
 Drug-induced liver injury (DILI) is a major cause of clinical attrition despite extensive in vitro toxicity screening. I applied interpretable machine learning to molecular descriptors and fingerprint bits derived from SMILES strings to identify structural and physicochemical features predictive of DILI risk. These bits, when interpreted in the context of top RDKit descriptors including aromaticity, heterocycle count, lipophilicity proxies, and topological features, reveal mechanistically plausible pathways to hepatotoxicity such as reactive metabolite formation, transporter inhibition, metabolic stress, clearance overload, and intracellular accumulation. I build two model using the same approach with two dataset **DILIrank** and **InterDILI**.  
@@ -141,4 +139,7 @@ This dual-model view mirrors real drug development, where both **structural aler
 ## **Conclusion**
 
 The two DILI models represent successive layers of chemical understanding derived from SMILES alone. Model-1 captures well-established toxicological motifs and provides mechanistic clarity. Model-2, enabled by a larger dataset, abstracts these mechanisms into higher-order organizational principles governing hepatic exposure, metabolism, and stress.
+
+## Future Work
+Using the model for reinforcement learning in REINVENT4 for DILI aware molecule generation. 
 
